@@ -58,13 +58,13 @@ int main()
 /*
 int main()
 {
-    const int N_max = 1000; //размер массива
-    int mas[N_max]; //объявление массива
-    int n; //объявление числа для получения его с клавиатуры
+    const int N_max = 1000; 
+    int mas[N_max]; 
+    int n; 
     std::cout << "Enter the number of array elements: " << std::endl;
-    std::cin >> n; // ввод числа
+    std::cin >> n; 
     std::cout << "Start typing each element of the array" << std::endl;
-    for (int i = 0; i<n; i++) //ввод массива
+    for (int i = 0; i<n; i++) 
         std::cin >> mas[i];
 
     for (int i=0;i<n-1; i++)
@@ -125,7 +125,7 @@ int main()
         }
 
     std::cout << "Result is:" << std::endl;        
-    for (int i = 0; i<n; i++) //вывод массива
+    for (int i = 0; i<n; i++) 
         std::cout << mas[i] << " ";
         
         return 0;
@@ -260,7 +260,7 @@ int main()
         
         if (Num < 2) 
         {
-            isPrime = false; // Числа меньше 2 не простые
+            isPrime = false; 
         } 
         else 
         {
@@ -268,13 +268,13 @@ int main()
             {
                 if (Num % j == 0) 
                 {
-                    isPrime = false; // Если делится на j, то не простое
+                    isPrime = false; 
                     break;
                 }
             }
         }
 
-        // Дублирование простого числа
+        
         if (isPrime) 
         {
             for (int j = n; j > i; j--)
@@ -286,7 +286,7 @@ int main()
         }
     }
 
-    // Вывод оставшихся элементов массива
+    
     std::cout << "Modified array: ";
     for (int i = 0; i < n; i++) 
     {
