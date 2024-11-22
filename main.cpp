@@ -4,210 +4,244 @@
 
 // 1--------------------------------------------------------------------------------------------
 
-int main()
-{
-    const int N_Max = 10000;
-    int mas[N_Max];
+// int main()
+// {
+//     const int N_Max = 10000;
+//     int mas[N_Max];
 
-    int n;
-    std::cout << "Enter the number of array elements: " << std::endl;
-    std::cin >> n;
-    std::cout << "Start typing each element of the array" << std::endl;
-    for (int i=0; i<n; i++)
-        std::cin >> mas[i];
+//     int n;
+//     std::cout << "Enter the number of array elements: " << std::endl;
+//     std::cin >> n;
+//     if (n <= 0 || n > N_Max) 
+//     {
+//     std::cout << "Invalid input. Please enter a number between 1 and 10000: ";
+//     return 0;
+//     }
 
+//     std::cout << "Start typing each element of the array" << std::endl;
+//     for (int i=0; i<n; i++)
+//     {
+//         std::cin >> mas[i];
+//         if (mas[i] <= 0) 
+//         {
+//             std::cout << "Invalid input. Please enter a natural number: ";
+//             return 0;
+//         }
+//     }
 
-    bool FirstDigitExists = false;
-    for (int i = 0; i<n; i++)
-    {
-        int firstDigit = mas[i];
-        while (firstDigit > 9)
-            firstDigit = firstDigit / 10;
-        if (firstDigit == 1)
-        {
-            FirstDigitExists = true;
-            break;
-        }
-    }
-
-
-    if(FirstDigitExists)
-    {
-        for (int i=0;i<n-1; i++)
-            for (int j=i+1;j<n; j++)
-                if (mas[i] > mas[j])
-                {
-                    int tmp = mas[i];
-                    mas[i] =  mas[j];
-                    mas[j] = tmp;
-
-                }
-
-    }
-
-    std::cout << "Result is:" << std::endl;
-    for (int i = 0; i<n; i++)
-        std::cout << mas[i] << " ";
+//     bool FirstDigitExists = false;
+//     for (int i = 0; i<n; i++)
+//     {
+//         int firstDigit = mas[i];
+//         while (firstDigit > 9)
+//             firstDigit = firstDigit / 10;
+//         if (firstDigit == 1)
+//         {
+//             FirstDigitExists = true;
+//             break;
+//         }
+//     }
 
 
-    return 0;
-}
+//     if(FirstDigitExists)
+//     {
+//         for (int i=0;i<n-1; i++)
+//             for (int j=i+1;j<n; j++)
+//                 if (mas[i] > mas[j])
+//                 {
+//                     int tmp = mas[i];
+//                     mas[i] =  mas[j];
+//                     mas[j] = tmp;
+
+//                 }
+
+//     }
+
+//     std::cout << "Result is:" << std::endl;
+//     for (int i = 0; i<n; i++)
+//         std::cout << mas[i] << " ";
 
 
-//2---------------------------------------------------------------------------------------
-/*
-int main()
-{
-    const int N_max = 1000; 
-    int mas[N_max]; 
-    int n; 
-    std::cout << "Enter the number of array elements: " << std::endl;
-    std::cin >> n; 
-    std::cout << "Start typing each element of the array" << std::endl;
-    for (int i = 0; i<n; i++) 
-        std::cin >> mas[i];
-
-    for (int i=0;i<n-1; i++)
-        for (int j=i+1;j<n; j++)
-        {
-            int firstI = mas[i];
-            int firstJ = mas[j];
-
-            while (firstI > 9)
-            {
-                firstI /= 10;
-            }
-
-            while (firstJ > 9)
-            {
-                firstJ /= 10;
-            }
+//     return 0;
+// }
 
 
-            int sumOfDigitsI = 0;
-            int digitI = mas[i];
-            int digitJ = mas[j];
-            while (digitI>0)
-            {
-                sumOfDigitsI += digitI%10;
-                digitI /= 10;
-            }
+// 2---------------------------------------------------------------------------------------
 
-            int sumOfDigitsJ = 0;
-            while (digitJ>0)
-            {
-                sumOfDigitsJ += digitJ%10;
-                digitJ /= 10;
-            }
+// int main()
+// {
+//     const int N_max = 1000; 
+//     int mas[N_max]; 
+//     int n; 
+//     std::cout << "Enter the number of array elements: " << std::endl;
+//     std::cin >> n;
+//     if (n <= 0 || n > N_max) 
+//     {
+//     std::cout << "Invalid input. Please enter a number between 1 and 1000: ";
+//     return 0;
+//     }
+//     std::cout << "Start typing each element of the array" << std::endl;
+//     for (int i = 0; i<n; i++)
+//     {
+//         std::cin >> mas[i];
+//         if (mas[i] <= 0) 
+//          {
+//              std::cout << "Invalid input. Please enter a natural number: ";
+//              return 0;
+//         }
+//     }
+
+//     for (int i=0;i<n-1; i++)
+//         for (int j=i+1;j<n; j++)
+//         {
+//             int firstI = mas[i];
+//             int firstJ = mas[j];
+
+//             while (firstI > 9)
+//             {
+//                 firstI /= 10;
+//             }
+
+//             while (firstJ > 9)
+//             {
+//                 firstJ /= 10;
+//             }
 
 
-            if (firstI > firstJ)
-                {
-                    int tmp = mas[i];
-                    mas[i] =  mas[j];
-                    mas[j] = tmp;
+//             int sumOfDigitsI = 0;
+//             int digitI = mas[i];
+//             int digitJ = mas[j];
+//             while (digitI>0)
+//             {
+//                 sumOfDigitsI += digitI%10;
+//                 digitI /= 10;
+//             }
 
-                }
+//             int sumOfDigitsJ = 0;
+//             while (digitJ>0)
+//             {
+//                 sumOfDigitsJ += digitJ%10;
+//                 digitJ /= 10;
+//             }
 
-            else if (firstI == firstJ && sumOfDigitsI>sumOfDigitsJ)
-            {
-                int tmp = mas[i];
-                    mas[i] =  mas[j];
-                    mas[j] = tmp;
-            }
 
-            else if (firstI == firstJ && sumOfDigitsI==sumOfDigitsJ && mas[i]>mas[j])
-            {
-                int tmp = mas[i];
-                    mas[i] =  mas[j];
-                    mas[j] = tmp;
-            }
-        }
+//             if (firstI > firstJ)
+//                 {
+//                     int tmp = mas[i];
+//                     mas[i] =  mas[j];
+//                     mas[j] = tmp;
 
-    std::cout << "Result is:" << std::endl;        
-    for (int i = 0; i<n; i++) 
-        std::cout << mas[i] << " ";
+//                 }
+
+//             else if (firstI == firstJ && sumOfDigitsI>sumOfDigitsJ)
+//             {
+//                 int tmp = mas[i];
+//                     mas[i] =  mas[j];
+//                     mas[j] = tmp;
+//             }
+
+//             else if (firstI == firstJ && sumOfDigitsI==sumOfDigitsJ && mas[i]>mas[j])
+//             {
+//                 int tmp = mas[i];
+//                     mas[i] =  mas[j];
+//                     mas[j] = tmp;
+//             }
+//         }
+
+//     std::cout << "Result is:" << std::endl;        
+//     for (int i = 0; i<n; i++) 
+//         std::cout << mas[i] << " ";
         
-        return 0;
-}
+//         return 0;
+// }
 
 
 //3--------------------------------------------------------------------------------
 
 
-int main() 
-{
-    const int N_Max = 100; 
-    const int M_Max = 100;
-    int matrix[N_Max][M_Max];
+// int main() 
+// {
+//     const int N_Max = 100; 
+//     const int M_Max = 100;
+//     int matrix[N_Max][M_Max];
 
-    int n = 0;
-    int m = 0;
-    std::cout << "Enter number of rows (n) and columns (m): ";
-    std::cin >> n >> m;
+//     int n = 0;
+//     int m = 0;
+//     std::cout << "Enter number of rows (n) and columns (m): ";
+//     std::cin >> n >> m;
+//     if (n <= 0 || m <= 0 || n > N_Max || m > M_Max)
+//     {
+//         std::cout << "Invalid input. Please enter a number between 1 and 100: ";
+//         return 0;
+//     }
 
-    std::cout << "Enter matrix elements:" << std::endl;
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            std::cin >> matrix[i][j];
-        }
-    }
+//     std::cout << "Enter matrix elements:" << std::endl;
+//     for (int i = 0; i < n; i++)
+//     {
+//         for (int j = 0; j < m; j++)
+//         {
+//             std::cin >> matrix[i][j];
+//             if (matrix[i] <= 0 || matrix[j] <= 0) 
+//             {
+//                 std::cout << "Invalid input. Please enter a natural number: ";
+//                 return 0;
+//             }
+//         }
+//     }
 
-    std::cout << "Matrix:" << std::endl;
-    for (int i = 0; i < n; i++) 
-    {
-        for (int j = 0; j < m; j++)
-        {
-            std::cout << matrix[i][j] << " ";
-        }
-        std::cout << std::endl;
-    }
+//     std::cout << "Matrix:" << std::endl;
+//     for (int i = 0; i < n; i++) 
+//     {
+//         for (int j = 0; j < m; j++)
+//         {
+//             std::cout << matrix[i][j] << " ";
+//         }
+//         std::cout << std::endl;
+//     }
 
-    int min = INT_MAX;
-    int indexmin = -1;
+//     int min = INT_MAX;
+//     int indexmin = -1;
 
-    for (int i = 0; i < n; i++) 
-    {
-        int Sum = 0;
+//     for (int i = 0; i < n; i++) 
+//     {
+//         int Sum = 0;
 
-        for (int j = 0; j < m; j++) 
-        {
-            Sum += matrix[i][j];
-        }
+//         for (int j = 0; j < m; j++) 
+//         {
+//             Sum += matrix[i][j];
+//         }
 
-        std::cout << "Sum of elements " << i << ": " << Sum << std::endl;
+//         std::cout << "Sum of elements " << i << ": " << Sum << std::endl;
 
         
-        if (std::abs(Sum) < std::abs(min))
-        {
-            min = Sum;
-            indexmin = i;
-        }
-    }
+//         if (std::abs(Sum) < std::abs(min))
+//         {
+//             min = Sum;
+//             indexmin = i;
+//         }
+//     }
 
 
-    if (indexmin != -1) 
-    {
-        for (int j = 0; j < m; j++) 
-        {
-            matrix[indexmin][j] = 0;
-        }
-    }
+//     if (indexmin != -1) 
+//     {
+//         for (int j = 0; j < m; j++) 
+//         {
+//             matrix[indexmin][j] = 0;
+//         }
+//     }
 
-    std::cout << "Updated Matrix:" << std::endl;
-    for (int i = 0; i < n; i++) 
-    {
-        for (int j = 0; j < m; j++) 
-        {
-            std::cout << matrix[i][j] << " ";
-        }
-        std::cout << std::endl;
-    }    
+//     std::cout << "Updated Matrix:" << std::endl;
+//     for (int i = 0; i < n; i++) 
+//     {
+//         for (int j = 0; j < m; j++) 
+//         {
+//             std::cout << matrix[i][j] << " ";
+//         }
+//         std::cout << std::endl;
+//     }    
 
-    return 0;
-}
+//     return 0;
+// }
 
 
 //4--------------------------------------------------------------------------------
@@ -218,9 +252,20 @@ int main()
     int mas[N_Max];
     int n;
     std::cin >> n;
+    if (n <= 0 || n > (N_Max/2))
+    {
+        std::cout << "Invalid input. Please enter a number between 1 and 10000: ";
+        return 0;
+    }
     for(int i=0;i<n;i++)
+    {
         std::cin >> mas[i];
-
+        if (mas[i] <= 0) 
+        {
+            std::cout << "Invalid input. Please enter a natural number: ";
+            return 0;
+        }
+    }
     for (int i = n - 1; i >= 0; i--) 
     {
         int Num = mas[i];
@@ -296,4 +341,3 @@ int main()
 
     return 0;
 }
-*/
